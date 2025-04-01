@@ -8,7 +8,48 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="MathPendulum">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel
+            Grid.Column="1"
+            Margin="0 106 0 0">
+            <Ellipse
+                x:Name="pivot"
+                Width="4"
+                Height="4"
+                Fill="Black"
+                />
+            <Rectangle
+                x:Name="thread"
+                Width="2" 
+                Height="100" 
+                Fill="Black">
+                
+                <Rectangle.RenderTransform>
+                    <RotateTransform x:Name="threadRotate"/>
+                </Rectangle.RenderTransform>
+                
+            </Rectangle>
+            <Ellipse 
+                x:Name="materialDot" 
+                Width="16" 
+                Height="16" 
+                Fill="Gray"
+                MouseEnter="MaterialDotMouseEnter"
+                MouseLeave="MaterialDotMouseLeave"
+                MouseLeftButtonDown="MaterialDotMouseClick"
+                MouseMove="MaterialDotMouseMove">
+                
+                <Ellipse.RenderTransform>
+                    <RotateTransform x:Name="materialDotRotate"/>
+                </Ellipse.RenderTransform>
+                
+            </Ellipse>
+
+        </StackPanel>
+
     </Grid>
 </Page>

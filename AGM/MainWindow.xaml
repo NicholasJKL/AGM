@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AGM"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="320">
+        Title="MainWindow" Height="450" Width="640">
     <Grid>
         <StackPanel Width="300" HorizontalAlignment="Left">
             <TextBlock Margin="4 4 0 0" TextAlignment="Center">
@@ -14,7 +14,7 @@
             <TextBlock Margin="4 8 0 0">
                 1. Период математического маятника
             </TextBlock>
-            <Button Margin="4 4 0 0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Button Margin="4 4 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonMathPendulumClick">
                 Вычислить
             </Button>
             <TextBlock Margin="4 8 0 0">
@@ -24,9 +24,9 @@
                 Вычислить
             </Button>
             <TextBlock Margin="4 8 0 0">
-                3. Число Пи
+                3. Волновое уравнение
             </TextBlock>
-            <Button Margin="4 4 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonMathPendulum_Click">
+            <Button Margin="4 4 0 0" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonWaveEqClick">
                 Вычислить
             </Button>
         </StackPanel>
