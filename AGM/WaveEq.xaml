@@ -10,8 +10,18 @@
       Title="WaveEq">
 
     <Grid Background="White">
-        <ScottPlot:WpfPlot x:Name="WavePlot">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="16" Grid.Column="0">
+
+           
+        </Grid>
+
+        <ScottPlot:WpfPlot x:Name="WavePlot" Grid.Column="1">
+
         </ScottPlot:WpfPlot>
     </Grid>
 </Page>
