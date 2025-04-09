@@ -16,8 +16,29 @@
         </Grid.ColumnDefinitions>
 
         <Grid Margin="16" Grid.Column="0">
+            <StackPanel Margin="10" VerticalAlignment="Top">
 
-           
+                <TextBlock Margin="0 0 0 5" Text="Время t:"/>
+                <TextBox x:Name="timeTextBox" 
+                 Margin="0 0 0 10"
+                 Padding="2"
+                 Width="120"
+                 HorizontalAlignment="Left"/>
+                
+                <TextBlock Margin="0 0 0 5" Text="Шаг x:"/>
+                <TextBox x:Name="stepTextBox" 
+                 Margin="0 0 0 15"
+                 Padding="2"
+                 Width="120"
+                 HorizontalAlignment="Left"/>
+
+                <Button x:Name="calculateButton" 
+                Content="Рассчитать"
+                Width="100"
+                HorizontalAlignment="Left"
+                Click="Calculate"/>
+            </StackPanel>
+
         </Grid>
 
         <ScottPlot:WpfPlot x:Name="WavePlot" Grid.Column="1">

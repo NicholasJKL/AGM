@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using ScottPlot.Plottables;
+using ScottPlot.Rendering.RenderActions;
 
 
 namespace AGM
@@ -33,6 +35,28 @@ namespace AGM
             }
 
             WavePlot.Plot.Add.Scatter(dataX, dataY);
+        }
+
+        private void Calculate(object sender, RoutedEventArgs e)
+        {
+            double t = double.Parse(timeTextBox.Text),
+                step = double.Parse(stepTextBox.Text);
+
+            var dataX = new List<double>();
+            var dataY = new List<double>();
+
+            for (double R = 0; R <= t; R += step)
+            {
+                double r0 = t - R - step;
+
+                dataX.Add(R);
+
+                dataY.Add(PreciseCalc.SympsonWaveEq(r0, t, R));
+            }
+
+            WavePlot.Plot.Clear();
+            WavePlot.Plot.Add.Scatter(dataX, dataY);
+            WavePlot.Plot.Axes.AutoScale();
         }
     }
 }

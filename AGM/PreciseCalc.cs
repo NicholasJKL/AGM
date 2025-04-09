@@ -50,9 +50,6 @@ namespace AGM
                 term1 = (4 * Math.Exp(-r / 2) * (r / 2)) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - (r / 2), 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + (r / 2), 2))),
                 term2 = (Math.Exp(-r) * r) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - r, 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + r, 2)));
 
-            Debug.Print($"term1 = {term1}");
-            Debug.Print($"term2 = {term2}");
-
             return h * (term1 + term2);
         }
 
