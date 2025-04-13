@@ -1,19 +1,37 @@
 ﻿using System;
-using System.Diagnostics;
+
 
 namespace AGM
 {
     public static class PreciseCalc
     {
-        public static double AGM(double a, double b, int precision = 8)
+        public delegate double PreciseFunc(double x);
+
+        public static double NegExp(double x) 
+        {
+            return Math.Exp(-x);
+        }
+
+		public static double AbsCos(double x)
+		{
+			return Math.Abs(Math.Cos(x));
+		}
+
+		public static double AbsSin(double x)
+		{
+			return Math.Abs(Math.Sin(x));
+		}
+
+		public static double AGM(double a, double b, int precision = 4)
         {
             while (Math.Abs(a - b) > Math.Pow(10, -(precision)))
             {
-                double temp = a;
+                double newA;
 
-                temp = (a + b) / 2;
+                newA = (a + b) / 2;
                 b = Math.Sqrt(a * b);
-                a = temp;
+
+                a = newA;
 
                 // Debug.WriteLine($"a - {a}");
                 // Debug.WriteLine($"b - {b}");
@@ -22,15 +40,20 @@ namespace AGM
             return a;
         }
 
-        public static double MAGM(double a, double b, int precision = 4) // Переделать
+        public static double MAGM(double a, double b, int precision = 4)
         {
             double c = 0;
 
             while (Math.Abs(a - b) > Math.Pow(10, -(precision)))
             {
-                a = (a + b) / 2;
-                b = c + Math.Sqrt((a - c) * (b - c));
+                double newA, newB;
+
+                newA = (a + b) / 2;
+                newB = c + Math.Sqrt((a - c) * (b - c));
                 c = c - Math.Sqrt((a - c) * (b - c));
+
+                a = newA;
+                b = newB;
 
                 // Debug.WriteLine($"a - {a}");
                 // Debug.WriteLine($"b - {b}");
@@ -39,7 +62,7 @@ namespace AGM
             return a;
         }
 
-        public static double SympsonWaveEq(double r, double t, double R)
+        public static double SympsonWaveEq(PreciseFunc f, double r, double t, double R)
         {
             if (t < R + r)
             {
@@ -47,17 +70,10 @@ namespace AGM
             }
 
             double h = r / 6,
-                term1 = (4 * Math.Exp(-r / 2) * (r / 2)) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - (r / 2), 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + (r / 2), 2))),
-                term2 = (Math.Exp(-r) * r) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - r, 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + r, 2)));
+                term1 = (4 * f(r / 2) * (r / 2)) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - (r / 2), 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + (r / 2), 2))),
+                term2 = (f(r) * r) / AGM(Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R - r, 2)), Math.Sqrt(Math.Pow(t, 2) - Math.Pow(R + r, 2)));
 
             return h * (term1 + term2);
-        }
-
-        public static double ExpWaveEq(double r)
-        {
-            double res = -((r - Math.Exp(r) + 1) / (Math.Exp(r)));
-
-            return res;
         }
     }
 }

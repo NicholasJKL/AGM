@@ -9,17 +9,8 @@ namespace AGM
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void ButtonMathPendulumClick(object sender, RoutedEventArgs e)
-        {
-            this.Content = new MathPendulum();
+            this.Content = new MainMenu();
         }
-
-        private void ButtonWaveEqClick(object sender, RoutedEventArgs e) 
-        {
-            this.Content = new WaveEq();
-        }
-
 	}
 }

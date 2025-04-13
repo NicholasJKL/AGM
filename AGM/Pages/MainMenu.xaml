@@ -1,0 +1,36 @@
+﻿<Page x:Class="AGM.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AGM"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AGM">
+        
+    <Grid Background="White">
+            <TextBlock Margin="4 4 0 0" TextAlignment="Center" FontSize="20">
+                Арифметико-геометрическое среднее
+            </TextBlock>
+        <StackPanel Width="Auto" Margin="40" HorizontalAlignment="Left">
+            <TextBlock Margin="4 8 0 0">
+        1. Период математического маятника
+            </TextBlock>
+            <Button Margin="4 4 0 0" Padding="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonMathPendulumClick">
+                Расчёт
+            </Button>
+            <TextBlock Margin="4 12 0 0">
+        2. Периметр эллипса
+            </TextBlock>
+            <Button Margin="4 4 0 0" Padding="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonEllipseLenClick">
+                Расчёт
+            </Button>
+            <TextBlock Margin="4 12 0 0">
+        3. Волновое уравнение
+            </TextBlock>
+            <Button Margin="4 4 0 0" Padding="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonWaveEqClick">
+                Расчёт
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>
