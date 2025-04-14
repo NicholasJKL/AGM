@@ -9,7 +9,7 @@
       Title="AGM">
         
     <Grid Background="White">
-            <TextBlock Margin="4 4 0 0" TextAlignment="Center" FontSize="20">
+            <TextBlock Margin="4 8 0 0" TextAlignment="Center" FontSize="20">
                 Арифметико-геометрическое среднее
             </TextBlock>
         <StackPanel Width="Auto" Margin="40" HorizontalAlignment="Left">
@@ -31,6 +31,16 @@
             <Button Margin="4 4 0 0" Padding="2" HorizontalAlignment="Right" VerticalAlignment="Top" Click="ButtonWaveEqClick">
                 Расчёт
             </Button>
+            <TextBlock Margin="4 12 0 0">
+            Точность методов АГС и МАГС:
+            </TextBlock>
+            <TextBox x:Name ="precisionBox"
+                Margin="4 4 0 0"
+                Width="36"
+                HorizontalAlignment="Right"
+                TextChanged="PrecisionChanged"/>
+
+
         </StackPanel>
     </Grid>
 </Page>

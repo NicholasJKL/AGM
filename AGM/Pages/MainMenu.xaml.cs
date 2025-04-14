@@ -1,18 +1,7 @@
 ﻿using AGM.Pages;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace AGM
 {
@@ -21,6 +10,8 @@ namespace AGM
 		public MainMenu()
 		{
 			InitializeComponent();
+
+			precisionBox.Text = MainWindow.Precision.ToString();
 		}
 
 		private void ButtonMathPendulumClick(object sender, RoutedEventArgs e)
@@ -36,6 +27,18 @@ namespace AGM
 		private void ButtonWaveEqClick(object sender, RoutedEventArgs e)
 		{
 			Window.GetWindow(this).Content = new WaveEq();
+		}
+
+		private void PrecisionChanged(object sender, TextChangedEventArgs e)
+		{
+			if (int.TryParse(precisionBox.Text, out int result) && result >= 0 && result <= 12)
+			{
+				MainWindow.Precision = result;
+			}
+			else 
+			{
+				precisionBox.Text = "4";
+			}
 		}
 	}
 }

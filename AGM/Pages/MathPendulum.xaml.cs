@@ -35,9 +35,9 @@ namespace AGM
 					throw new Exception();
 				}
 
-				double T = (2 * Math.PI * Math.Sqrt(l / g)) / PreciseCalc.AGM(1, Math.Cos((phi * Math.PI / 180) / 2));
+				double T = (2 * Math.PI * Math.Sqrt(l / g)) / PreciseCalc.AGM(1, Math.Cos((phi * Math.PI / 180) / 2), MainWindow.Precision);
 
-				pendulumPeriodResult.Text = $"Результат T = {T}";
+				pendulumPeriodResult.Text = $"Результат T = {Math.Round(T, MainWindow.Precision, MidpointRounding.AwayFromZero)}";
 
 				errorMessage.Visibility = Visibility.Hidden;
 

@@ -37,9 +37,9 @@ namespace AGM.Pages
 					throw new Exception();
 				}
 
-				double P = 2 * Math.PI * (PreciseCalc.MAGM(Math.Pow(a, 2), Math.Pow(b, 2)) / PreciseCalc.AGM(a, b));
+				double P = 2 * Math.PI * (PreciseCalc.MAGM(Math.Pow(a, 2), Math.Pow(b, 2), MainWindow.Precision) / PreciseCalc.AGM(a, b, MainWindow.Precision));
 
-				ellipseLenResult.Text = $"Результат P = {P}";
+				ellipseLenResult.Text = $"Результат P = {Math.Round(P, MainWindow.Precision, MidpointRounding.AwayFromZero)}";
 
 				errorMessage.Visibility = Visibility.Hidden;
 
