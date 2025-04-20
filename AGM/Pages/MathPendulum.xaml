@@ -10,7 +10,7 @@
 
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="270"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
@@ -33,7 +33,7 @@
                      HorizontalAlignment="Left"
                      TextChanged="ResultToEmpty"/>
 
-                <TextBlock Margin="0 0 0 5" Text="Угол θ:"/>
+                <TextBlock Margin="0 0 0 5" Text="Угол θ в градусах:"/>
                 <TextBox x:Name="angleTextBox" 
                      Text="2"
                      Margin="0 0 0 15"
@@ -42,7 +42,7 @@
                      HorizontalAlignment="Left"
                      TextChanged="ResultToEmpty"/>
 
-                <TextBlock Margin="0 0 0 5" Text="Ускорение свободного падения:"/>
+                <TextBlock Margin="0 0 0 5" Text="Ускорение свободного падения g:" TextWrapping="Wrap"/>
                 <TextBox x:Name="gTextBox" 
                      Text="9,81"
                      Margin="0 0 0 15"
